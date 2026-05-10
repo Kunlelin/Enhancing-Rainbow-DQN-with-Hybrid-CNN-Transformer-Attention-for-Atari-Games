@@ -1,0 +1,7 @@
+numpy
+PyYAML
+gymnasium[atari]
+ale-py
+opencv-python
+pandas
+matplotlib

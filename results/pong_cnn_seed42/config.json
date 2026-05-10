@@ -1,0 +1,75 @@
+{
+  "env": {
+    "game": "pong",
+    "frame_stack": 4,
+    "frame_skip": 4,
+    "image_size": 84,
+    "max_episode_length": 108000,
+    "noop_max": 30
+  },
+  "agent": {
+    "atoms": 51,
+    "v_min": -10,
+    "v_max": 10,
+    "batch_size": 64,
+    "multi_step": 3,
+    "discount": 0.99,
+    "target_update": 32000,
+    "learning_rate": 6.25e-05,
+    "adam_eps": 0.00015,
+    "priority_exponent": 0.5,
+    "priority_weight": 0.4,
+    "noisy_std": 0.5,
+    "memory_capacity": 500000,
+    "learn_start": 80000,
+    "reward_clip": 1
+  },
+  "encoder": {
+    "type": "cnn",
+    "cnn_channels": [
+      32,
+      64,
+      64
+    ],
+    "cnn_kernels": [
+      8,
+      4,
+      3
+    ],
+    "cnn_strides": [
+      4,
+      2,
+      1
+    ],
+    "hidden_size": 512
+  },
+  "transformer": {
+    "embed_dim": 64,
+    "num_heads": 4,
+    "num_layers": 2,
+    "mlp_ratio": 2.0,
+    "dropout": 0.0,
+    "patch_size": 3,
+    "use_cls_token": true
+  },
+  "training": {
+    "total_frames": 10000000,
+    "eval_interval": 1000000,
+    "eval_episodes": 5,
+    "replay_frequency": 4,
+    "seed": 42,
+    "device": "cuda",
+    "log_interval": 10000
+  },
+  "games": {
+    "benchmark": [
+      "pong",
+      "breakout",
+      "space_invaders",
+      "seaquest",
+      "qbert",
+      "beam_rider",
+      "enduro"
+    ]
+  }
+}
