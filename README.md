@@ -4,11 +4,17 @@ This repository contains the code and experiment metrics for a master's disserta
 
 ## Repository Structure
 
-- `code/`: Rainbow DQN training code, model definitions, configuration files, plotting scripts, and experiment result folders.
-- `code/results/`: Main 10M-frame experiment metrics and configurations.
-- `code/results_extra_seeds/`: Additional seed experiments.
-- `code/results_long/`: Longer 30M-frame experiment metrics and configurations.
-- `code/results_ablations/`: Qbert ablation experiment metrics and configurations.
+- `train.py`: Main training entry point.
+- `experiments.py`: Batch experiment runner.
+- `agents/`: Rainbow agent implementation.
+- `models/`: CNN, hybrid CNN-Transformer encoder, noisy layers, and Rainbow network definitions.
+- `utils/`: Atari environment wrapper, replay buffer, and logging utilities.
+- `configs/`: Default training configuration.
+- `scripts/`: Plotting, result recomputation, ablation, recording, and utility scripts.
+- `results/`: Main 10M-frame experiment metrics and configurations.
+- `results_extra_seeds/`: Additional seed experiments.
+- `results_long/`: Longer 30M-frame experiment metrics and configurations.
+- `results_ablations/`: Qbert ablation experiment metrics and configurations.
 
 Large model checkpoint files (`best_model.pt` and `final_model.pt`) are intentionally omitted from this GitHub upload version because many of them exceed GitHub's normal file-size limit. The included CSV/JSON metrics and configuration files are sufficient for reproducing the reported tables and figures.
 
@@ -39,7 +45,6 @@ PY
 ## Training Example
 
 ```bash
-cd code
 python train.py \
   --config configs/default.yaml \
   --game qbert \
@@ -53,7 +58,6 @@ python train.py \
 ## Reproducing Figures
 
 ```bash
-cd code
 python scripts/plot_thesis_figures.py \
   --results-dir results \
   --extra-results-dir results_extra_seeds \
